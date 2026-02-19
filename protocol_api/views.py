@@ -2,7 +2,7 @@ from django.contrib.auth.models import User
 from rest_framework import viewsets, mixins
 
 from protocol_api.models import Protocol
-from protocol_api.serializers import UserSerializer, ProtocolSerializer
+from protocol_api.serializers import UserSerializer, ProtocolListSerializer, ProtocolDetailSerializer
 
 
 class UserViewSet(viewsets.ModelViewSet):
@@ -15,5 +15,9 @@ class ProtocolViewSet(mixins.CreateModelMixin,
                       mixins.ListModelMixin,
                       viewsets.GenericViewSet):
     queryset = Protocol.objects.all()
-    serializer_class = ProtocolSerializer
     lookup_field = 'name'
+
+    def get_serializer_class(self):
+        if self.action == 'list':
+            return ProtocolListSerializer
+        return ProtocolDetailSerializer

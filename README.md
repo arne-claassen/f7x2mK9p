@@ -1,9 +1,9 @@
 # Protocol Registry
 
 Simple API for registering and retrieving study protocols. This API is used as a component in a larger
-system, which uses `Protocol` to reference access the registration . Protocol names cannot be changed
-once registered and serve as symbolic identifiers. They must be unique and follow the naming convention
-of lower-case alphanumeric and underscores.
+system, which uses `Protocol` to reference access the registration and the `Study` data. Protocol
+names cannot be changed once registered and serve as symbolic identifiers. They must be unique and 
+follow the naming convention of lower-case alphanumeric and underscores.
 
 ## Endpoints
 
