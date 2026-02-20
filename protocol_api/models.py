@@ -1,7 +1,8 @@
 from django.core.validators import RegexValidator
 from django.db import models
-from rest_framework.fields import JSONField
+from django.utils.functional import classproperty
 
+from protocol_api.cache import ModelCache
 from protocol_api.study import Study
 
 
@@ -31,3 +32,12 @@ class Protocol(models.Model):
             self._study = Study(self.study_definition)
         return self._study
 
+
+    @classproperty
+    def instances(cls) -> ModelCache:
+        # NOTE: This code HAS to use *attr because @classproperty does some magic that means that
+        # setting and getting by dot notation actually does not happen on the class but is only a
+        # local variable
+        if not hasattr(cls, "__instances"):
+            setattr(cls, '__instances', ModelCache(cls, 'name'))
+        return getattr(cls, '__instances')
