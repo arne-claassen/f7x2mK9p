@@ -13,6 +13,7 @@ class UserViewSet(viewsets.ModelViewSet):
 
 
 class ProtocolViewSet(mixins.CreateModelMixin,
+                      mixins.UpdateModelMixin,
                       mixins.RetrieveModelMixin,
                       mixins.ListModelMixin,
                       viewsets.GenericViewSet):

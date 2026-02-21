@@ -21,6 +21,7 @@ class Protocol(models.Model):
     )
     created_at = models.DateTimeField(auto_now_add=True)
     study_definition = models.JSONField()
+    description = models.TextField(default="")
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

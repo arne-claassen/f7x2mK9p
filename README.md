@@ -7,8 +7,9 @@ follow the naming convention of lower-case alphanumeric and underscores.
 
 ## Endpoints
 
-| Methods   | Route             | Description                        |
-|-----------|-------------------|------------------------------------|
-| GET       | /protocol/        | Retrieve all protocols             |
-| POST      | /protocol/        | Create new protocol                |
-| GET       | /protocol/{name}/ | Retrieve specific protocol         |
+| Methods   | Route             | Description                                |
+|-----------|-------------------|--------------------------------------------|
+| GET       | /protocol/        | Retrieve all protocols                     |
+| POST      | /protocol/        | Create new protocol                        |
+| GET       | /protocol/{name}/ | Retrieve specific protocol                 |
+| PUT,PATCH | /protocol/{name}/ | Update `description` or `study_definition` |
